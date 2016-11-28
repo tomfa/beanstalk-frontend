@@ -92,11 +92,6 @@ div.form-group > input.form-control.input-lg:focus
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 5px;
-    cursor: pointer;
-}
-
-.image-item:hover {
-    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .image-item img

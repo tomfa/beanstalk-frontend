@@ -5,6 +5,7 @@ export default class PokemonList extends Component {
     actions: PropTypes.object,
     pokemons: PropTypes.array,
     status: PropTypes.string,
+    keyword: PropTypes.string
   };
 
   nextPage() {
@@ -33,11 +34,19 @@ export default class PokemonList extends Component {
 
         {
           (() => {
-            if (this.props.status === 'IDLE') {
+            if (this.props.status === 'DONE' && !this.props.keyword) {
               return (
                 <div style={{marginBottom: '20px'}} className="row">
                   <div className="col-md-6 col-md-offset-3">
-                    <button onClick={this.nextPage.bind(this)} type="button" className="btn btn-default btn-lg btn-block">Load More</button>
+                    <button  onClick={this.nextPage.bind(this)} type="button" className="btn btn-default btn-lg btn-block">Load More</button>
+                  </div>
+                </div>
+              );
+            } else if (this.props.status === 'PENDING_FOR_NEXT') {
+              return (
+                <div style={{marginBottom: '20px'}} className="row">
+                  <div className="col-md-6 col-md-offset-3">
+                    <div className="loading" />
                   </div>
                 </div>
               );

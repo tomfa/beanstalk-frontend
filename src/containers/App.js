@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+
 import * as reducers from '../reducers';
 /* eslint-disable no-unused-vars */
 import Styles from '../stylesheets/style.css';

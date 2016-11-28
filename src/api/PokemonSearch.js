@@ -10,9 +10,15 @@ function getJson(response) {
 
 let lolCache = {};
 
-export default function pokemonSearch(name, callback) {
-  if (!lolCache.hasOwnProperty(name)) {
-    lolCache[name] = fetch(`http://localhost:5000/api/pokemon/${name}/`)
+export default function pokemonSearch(name, page, callback) {
+  let url = name ?
+    `http://localhost:5000/api/pokemon/${name}/`
+    : 'http://localhost:5000/api/pokemon/';
+  console.log('page')
+  console.log(page)
+  url = page === 1 ? url : url + `?offset=${20*(page-1)}`;
+  if (!lolCache.hasOwnProperty(name + page)) {
+    lolCache[name] = fetch(url)
       .then(getJson)
       .then(data => {lolCache[name] = data; callback(data); return data })
       .catch(logError);
