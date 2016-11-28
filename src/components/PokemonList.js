@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 
-export default class PhotoList extends Component {
+export default class PokemonList extends Component {
   static propTypes = {
     actions: PropTypes.object,
-    photos: PropTypes.array,
+    pokemons: PropTypes.array,
     status: PropTypes.string,
   };
 
@@ -16,9 +16,9 @@ export default class PhotoList extends Component {
       <div>
         <div className="row">
           {
-              this.props.photos.map((item, index) => {
+              this.props.pokemons.map((item, index) => {
                 return (
-                  <div className="col-md-3 image-item" key={`PhotoItem_${item.id}_${index}`}>
+                  <div className="col-md-3 image-item" key={`PokemonItem_${item.id}_${index}`}>
                     <img src={item.image_url} />
                   </div>
                 );

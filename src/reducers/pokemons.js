@@ -2,15 +2,15 @@ import * as types from '../constants/SearchActionTypes';
 
 const initialState = {
   status: 'IDLE',
-  photos: [],
+  pokemons: [],
 };
 
-export default function searchPhotos(state = initialState, action) {
+export default function searchPokemons(state = initialState, action) {
   switch (action.type) {
   case types.SEARCH_DONE:
     return {
       ...state,
-      photos: [...state.photos, ...action.photos],
+      pokemons: [...state.pokemons, ...action.pokemons],
       status: 'DONE',
       page: action.page,
       keyword: action.keyword,
@@ -23,7 +23,7 @@ export default function searchPhotos(state = initialState, action) {
   case types.SEARCH_PENDING:
     return {
       ...state,
-      photos: [],
+      pokemons: [],
       status: 'PENDING',
     };
   default:

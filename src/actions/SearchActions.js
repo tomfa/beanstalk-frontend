@@ -1,7 +1,7 @@
 import * as types from '../constants/SearchActionTypes';
-import photoSearch from '../api/PhotoSearch';
+import pokemonSearch from '../api/PokemonSearch';
 
-function searchWithPhotoAPI(keyword, page, dispatch) {
+function searchWithPokemonAPI(keyword, page, dispatch) {
   if (page >= 2) {
     dispatch({
       type: types.SEARCH_PENDING_FOR_NEXT,
@@ -12,11 +12,10 @@ function searchWithPhotoAPI(keyword, page, dispatch) {
     });
   }
 
-  photoSearch(keyword, page, (data) => {
+  pokemonSearch(keyword, (data) => {
     dispatch({
       type: types.SEARCH_DONE,
-      photos: data.photos,
-      page,
+      pokemons: data.pokemons,
       keyword,
     });
   });
@@ -24,14 +23,14 @@ function searchWithPhotoAPI(keyword, page, dispatch) {
 
 export function searchNextPageAction() {
   return (dispatch, getState) =>{
-    const page = getState().photos.page + 1;
-    const keyword = getState().photos.keyword;
-    searchWithPhotoAPI(keyword, page, dispatch);
+    const page = getState().pokemons.page + 1;
+    const keyword = getState().pokemons.keyword;
+    searchWithPokemonAPI(keyword, page, dispatch);
   };
 }
 
-export function searchPhotoAction(keyword, page = 1) {
+export function searchPokemonAction(keyword, page = 1) {
   return (dispatch) => {
-    searchWithPhotoAPI(keyword, page, dispatch);
+    searchWithPokemonAPI(keyword, page, dispatch);
   };
 }

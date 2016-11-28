@@ -7,10 +7,10 @@ export default class SearchInput extends Component {
     status: PropTypes.string,
   };
 
-  searchPhoto(event) {
+  searchPokemon(event) {
     if (event.which === 13) {
       const val = ReactDom.findDOMNode(this.refs.keyword).value;
-      this.props.actions.searchPhotoAction(val);
+      this.props.actions.searchPokemonAction(val);
 
       document.getElementById('header').style.animationPlayState = 'running';
     }
@@ -19,7 +19,7 @@ export default class SearchInput extends Component {
     return (
       <div>
         <div className="form-group">
-          <input onKeyDown={this.searchPhoto.bind(this)} type="text" ref="keyword" className="form-control input-lg" placeholder="Nature, Sky, Aurora... + Enter" />
+          <input onKeyDown={this.searchPokemon.bind(this)} type="text" ref="keyword" className="form-control input-lg" placeholder="Nature, Sky, Aurora... + Enter" />
         </div>
         {()=>{
           if (this.props.status === 'PENDING') {
