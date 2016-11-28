@@ -11,7 +11,7 @@ import SearchApp from './SearchApp';
 
 const reducer = combineReducers(reducers);
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
-const store = createStoreWithMiddleware(reducer);
+const store = createStoreWithMiddleware(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());;
 
 export default class App extends Component {
   render() {
