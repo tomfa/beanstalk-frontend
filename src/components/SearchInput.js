@@ -19,7 +19,7 @@ export default class SearchInput extends Component {
     return (
       <div>
         <div className="form-group">
-          <input onKeyDown={this.searchPokemon.bind(this)} type="text" ref="keyword" className="form-control input-lg" placeholder="Nature, Sky, Aurora... + Enter" />
+          <input onKeyDown={this.searchPokemon.bind(this)} type="text" ref="keyword" className="form-control input-lg" placeholder="E.g. Charizard or Bulbasaur..." />
         </div>
         {()=>{
           if (this.props.status === 'PENDING') {

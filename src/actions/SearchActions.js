@@ -12,10 +12,10 @@ function searchWithPokemonAPI(keyword, page, dispatch) {
     });
   }
 
-  pokemonSearch(keyword, (data) => {
+  pokemonSearch(keyword.toLowerCase(), (data) => {
     dispatch({
       type: types.SEARCH_DONE,
-      pokemons: data.pokemons,
+      pokemons: data.pokemon,
       keyword,
     });
   });

@@ -25,7 +25,7 @@ export default class SearchApp extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-6 col-md-offset-3 search-bar-content">
-                <h1>Search on 500px</h1>
+                <h1>Serch dem pokimans</h1>
                 <SearchInput actions={actions} status={this.props.status} />
               </div>
             </div>

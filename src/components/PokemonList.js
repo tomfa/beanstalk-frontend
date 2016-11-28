@@ -18,8 +18,12 @@ export default class PokemonList extends Component {
           {
               this.props.pokemons.map((item, index) => {
                 return (
-                  <div className="col-md-3 image-item" key={`PokemonItem_${item.id}_${index}`}>
-                    <img src={item.image_url} />
+                  <div className="col-sm-4 image-item" key={`PokemonItem_${item.id}_${index}`}>
+                    <h3>{item.name}</h3>
+                    <img src={item.imageUrl} />
+                    <span className="meta-info weight"><strong>Weight</strong>: {item.weight}</span>
+                    <span className="meta-info height"><strong>Height</strong>: {item.height}</span>
+                    <span className="meta-info id"><strong>id</strong>: {item.id}</span>
                   </div>
                 );
               })
@@ -29,7 +33,7 @@ export default class PokemonList extends Component {
 
         {
           (() => {
-            if (this.props.status === 'DONE') {
+            if (this.props.status === 'IDLE') {
               return (
                 <div style={{marginBottom: '20px'}} className="row">
                   <div className="col-md-6 col-md-offset-3">
