@@ -4,7 +4,6 @@ import pokemonSearch from '../api/PokemonSearch';
 function searchWithPokemonAPI(keyword, page, dispatch) {
 
   keyword = keyword ? keyword.toLowerCase() : keyword;
-  console.log(`function searchWithPokemonAPI(${keyword}, ${page}, ${dispatch}) {`)
   if (page >= 2) {
     dispatch({
       type: types.SEARCH_PENDING_FOR_NEXT,
